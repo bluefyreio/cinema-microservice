@@ -1,0 +1,36 @@
+[{
+    "_id": {
+        "$oid": "5b47a17ec8d30b0013a346d3"
+    },
+    "name": "Massachusetts",
+    "country_id": "5b47a3cbc8d30b0013a346d8",
+    "cities": ["5b47a090c8d30b0013a346ce"]
+}, {
+    "_id": {
+        "$oid": "5b47a191c8d30b0013a346d4"
+    },
+    "name": "New York",
+    "country_id": "5b47a3cbc8d30b0013a346d8",
+    "cities": ["5b47a125c8d30b0013a346cf"]
+}, {
+    "_id": {
+        "$oid": "5b47a1acc8d30b0013a346d5"
+    },
+    "name": "British Columbia",
+    "country_id": "5b47a3d9c8d30b0013a346d9",
+    "cities": ["5b47a13ac8d30b0013a346d0"]
+}, {
+    "_id": {
+        "$oid": "5b47a1c4c8d30b0013a346d6"
+    },
+    "name": "Ontario",
+    "country_id": "5b47a3d9c8d30b0013a346d9",
+    "cities": ["5b47a153c8d30b0013a346d1"]
+}, {
+    "_id": {
+        "$oid": "5b47a393c8d30b0013a346d7"
+    },
+    "name": "England",
+    "country_id": "5b47a3ebc8d30b0013a346da",
+    "cities": ["5b47a165c8d30b0013a346d2"]
+}]

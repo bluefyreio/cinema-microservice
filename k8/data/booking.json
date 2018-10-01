@@ -1,0 +1,11 @@
+{
+    "city": "Boston",
+    "cinema": "AMC Natick Plaza",
+    "movie": {
+          "title": "Hans Solo",
+          "format": "Imax"
+    },
+    "seats": "1,14",
+    "schedule": "09/30/2018",
+    "totalAmount": 71
+}

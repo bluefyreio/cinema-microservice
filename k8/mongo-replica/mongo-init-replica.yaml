@@ -1,0 +1,46 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mongo-init
+  labels:
+    app: mongo-init
+spec:
+  activeDeadlineSeconds: 1000
+  template:
+    metadata:
+      name: mongo-init
+      labels:
+        app: mongo-init
+    spec:
+      volumes:
+      - name: mongo-init-volume
+        configMap:
+          name: cinemainitdata
+      containers:
+      - name: mongo-init
+        image: mongo
+        env:
+        - name: NODE_ENV
+          value: 
+        - name: DB_SERVERS
+          valueFrom:
+            configMapKeyRef:
+              name: dbservers
+              key: dbservers
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: dbuser
+              key: dbuser
+        - name: DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: dbpass
+              key: dbpass
+        - name: setup
+          value: "true"
+        volumeMounts:
+        - name: mongo-init-volume
+          mountPath: /tmp          
+        command: ["/bin/sh", "-c", "ls /tmp && mongoimport --host mongo-replica-0.mongo-replica.cinema.svc.cluster.local --db cinemas --collection countries --file /tmp/countries.json --jsonArray -u $DB_USER -p $DB_PASS --authenticationDatabase admin && mongoimport --host mongo-replica-0.mongo-replica.cinema.svc.cluster.local --db cinemas --collection states --file /tmp/states.json --jsonArray -u $DB_USER -p $DB_PASS --authenticationDatabase admin && mongoimport --host mongo-replica-0.mongo-replica.cinema.svc.cluster.local --db cinemas --collection cities --file /tmp/cities.json --jsonArray -u $DB_USER -p $DB_PASS --authenticationDatabase admin && mongoimport --host mongo-replica-0.mongo-replica.cinema.svc.cluster.local --db cinemas --collection cinemas --file /tmp/cinemas.json --jsonArray -u $DB_USER -p $DB_PASS --authenticationDatabase admin && mongoimport --host mongo-replica-0.mongo-replica.cinema.svc.cluster.local --db movies --collection movies --file /tmp/movies.json --jsonArray -u $DB_USER -p $DB_PASS --authenticationDatabase admin && sleep 10"]
+      restartPolicy: Never

@@ -1,0 +1,69 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: booking-service
+  labels:
+    name: web
+    app: booking-service
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: TCP
+      name: http
+  selector:
+    app: booking-service
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+   name: booking-service
+spec:
+   replicas: 1
+   template:
+     metadata:
+       labels:
+         app: booking-service
+         name: web         
+     spec:
+       containers:
+       - name: booking-service
+         image: gcr.io/customerdemo-001/cinema-booking-service:v1
+#         command: ["/bin/sh"]
+#         args: ["-c", "tail -f /dev/null"]
+         command: ["/bin/sh"]
+         args: ["-c", "dumb-init npm start"]
+         imagePullPolicy: Always                 
+         ports:
+         - containerPort: 3000
+         env:
+         - name: NODE_ENV
+           value: 
+         - name: DB_SERVERS
+           valueFrom:
+            configMapKeyRef:
+              name: dbservers
+              key: dbservers
+         - name: DB_USER
+           valueFrom:
+             secretKeyRef:
+               name: dbuser
+               key: dbuser
+         - name: DB_PASS
+           valueFrom:
+             secretKeyRef:
+               name: dbpass
+               key: dbpass
+         readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 3000
+          initialDelaySeconds: 15
+          periodSeconds: 10               
+         livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 3000
+          initialDelaySeconds: 15
+          periodSeconds: 10               

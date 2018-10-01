@@ -1,0 +1,55 @@
+[{
+  "id": "1",
+  "title": "Hans Solo",
+  "runtime": 115,
+  "format": "IMAX",
+  "plot": "Lorem ipsum dolor sit amet",
+  "releaseYear": 2018,
+  "releaseMonth": 6,
+  "releaseDay": 6
+}, {
+  "id": "2",
+  "title": "Deadpool 2",
+  "runtime": 124,
+  "format": "IMAX",
+  "plot": "Lorem ipsum dolor sit amet",
+  "releaseYear": 2018,
+  "releaseMonth": 10,
+  "releaseDay": 13
+}, {
+  "id": "3",
+  "title": "Hotel Transylvannia",
+  "runtime": 107,
+  "format": "IMAX",
+  "plot": "Lorem ipsum dolor sit amet",
+  "releaseYear": 2017,
+  "releaseMonth": 1,
+  "releaseDay": 20
+}, {
+  "id": "4",
+  "title": "Resident Evil",
+  "runtime": 107,
+  "format": "IMAX",
+  "plot": "Lorem ipsum dolor sit amet",
+  "releaseYear": 2017,
+  "releaseMonth": 1,
+  "releaseDay": 27
+}, {
+  "id": "5",
+  "title": "Moanna",
+  "runtime": 114,
+  "format": "IMAX",
+  "plot": "Lorem ipsum dolor sit amet",
+  "releaseYear": 2016,
+  "releaseMonth": 12,
+  "releaseDay": 2
+}, {
+  "id": "6",
+  "title": "Jurassic World",
+  "runtime": 114,
+  "format": "IMAX",
+  "plot": "Lorem ipsum dolor sit amet",
+  "releaseYear": 2016,
+  "releaseMonth": 12,
+  "releaseDay": 2
+}]

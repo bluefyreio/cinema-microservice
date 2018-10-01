@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-replica
+  labels:
+    name: mongo-replica
+    app: cinema-microservice
+spec:
+  ports:
+  - port: 27017
+    targetPort: 27017
+  clusterIP: None
+  selector:
+    role: mongo
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: mongo-replica
+  labels:
+    name: mongo-replica  
+spec:
+  serviceName: mongo-replica
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        role: mongo
+        environment: test
+        replicaset: rs1
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: mongod-container
+          image: mongo:3.4
+          command:
+            - "mongod"
+            - "--bind_ip"
+            - "0.0.0.0"
+            - "--replSet"
+            - "rs1"
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: mongo-pv-claim-replica
+              mountPath: /data/db
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: dbuser
+                  key: dbuser
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: dbpass
+                  key: dbpass
+  volumeClaimTemplates:
+  - metadata:
+      name: mongo-pv-claim-replica
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 200M              

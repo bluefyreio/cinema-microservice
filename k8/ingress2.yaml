@@ -1,0 +1,53 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: cinema-ingress2
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "cinema-ip-001"  
+spec:
+  backend:
+    serviceName: login-service
+    servicePort: 80
+  rules:
+  - http:
+      paths:
+      - path: /movies
+        backend:
+          serviceName: movies-service
+          servicePort: 80
+      - path: /movies/*
+        backend:
+          serviceName: movies-service
+          servicePort: 80
+      - path: /payment
+        backend:
+          serviceName: payment-service
+          servicePort: 80
+      - path: /payment/*
+        backend:
+          serviceName: payment-service
+          servicePort: 80
+      - path: /login
+        backend:
+          serviceName: login-service
+          servicePort: 80
+      - path: /login/*
+        backend:
+          serviceName: login-service
+          servicePort: 80
+      - path: /cinemas
+        backend:
+          serviceName: cinema-catalog-service
+          servicePort: 80
+      - path: /cinemas/*
+        backend:
+          serviceName: cinema-catalog-service
+          servicePort: 80
+      - path: /booking
+        backend:
+          serviceName: booking-service
+          servicePort: 80
+      - path: /booking/*
+        backend:
+          serviceName: booking-service
+          servicePort: 80

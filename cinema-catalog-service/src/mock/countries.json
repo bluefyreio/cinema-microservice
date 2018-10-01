@@ -1,0 +1,19 @@
+[{
+    "_id": {
+        "$oid": "5b47a3cbc8d30b0013a346d8"
+    },
+    "name": "USA",
+    "states": ["5b47a17ec8d30b0013a346d3", "5b47a191c8d30b0013a346d4"]
+}, {
+    "_id": {
+        "$oid": "5b47a3d9c8d30b0013a346d9"
+    },
+    "name": "Canada",
+    "states": ["5b47a1acc8d30b0013a346d5", "5b47a1c4c8d30b0013a346d6"]
+}, {
+    "_id": {
+        "$oid": "5b47a3ebc8d30b0013a346da"
+    },
+    "name": "UK",
+    "states": ["5b47a393c8d30b0013a346d7"]
+}]

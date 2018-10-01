@@ -1,0 +1,36 @@
+[{
+    "_id": {
+        "$oid": "5b47a090c8d30b0013a346ce"
+    },
+    "name": "Boston",
+    "state_id": "5b47a17ec8d30b0013a346d3",
+    "cinemas": ["588ac3a02d029a6d15d0b5c4", "588ac3a02d029a6d15d0b5c5"]
+}, {
+    "_id": {
+        "$oid": "5b47a125c8d30b0013a346cf"
+    },
+    "name": "New York",
+    "state_id": "588aba4d2d029a6d15d0b5bb",
+    "cinemas": ["588ac7a12d029a6d15d0b5cb"]
+}, {
+    "_id": {
+        "$oid": "5b47a13ac8d30b0013a346d0"
+    },
+    "name": "Vancouver",
+    "state_id": "5b47a1acc8d30b0013a346d5",
+    "cinemas": ["588ac7332d029a6d15d0b5ca"]
+}, {
+    "_id": {
+        "$oid": "5b47a153c8d30b0013a346d1"
+    },
+    "name": "Toronto",
+    "state_id": "5b47a1c4c8d30b0013a346d6",
+    "cinemas": ["588ac65f2d029a6d15d0b5c8", "588ac65f2d029a6d15d0b5c9"]
+}, {
+    "_id": {
+        "$oid": "5b47a165c8d30b0013a346d2"
+    },
+    "name": "London",
+    "state_id": "5b47a393c8d30b0013a346d7",
+    "cinemas": ["588ac53c2d029a6d15d0b5c6", "588ac53c2d029a6d15d0b5c7"]
+}]

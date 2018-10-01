@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: cinema-ingress
+#  annotations:
+#    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: cinema.microservice
+    http:
+      paths:
+      - path: /payment
+        backend:
+          serviceName: payment-service
+          servicePort: 80
+      - path: /movies
+        backend:
+          serviceName: movies-service
+          servicePort: 80
