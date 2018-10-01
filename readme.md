@@ -30,7 +30,7 @@ Follow the steps in k8/buildk8.sh to set up kubernetes elements
 - set up mongo
 - set up each of the services
 
-
+Refer this [blog post](https://www.bluefyre.io/distributed-tracing-with-kubernetes-part1/) on Bluefyre on how to launch this microservices application on Kubernetes with Jaeger and Istio.
 
 ### CREDITS
 Original work authored by [Cristian Ramirez](https://github.com/Crizstian/cinema-microservice/) as MIT licensed
