@@ -14,12 +14,15 @@ spec:
   selector:
     app: movies-service
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
    name: movies-service
 spec:
    replicas: 1
+   selector:
+    matchLabels:
+      app: movies-service
    template:
      metadata:
        labels:

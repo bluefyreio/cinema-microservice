@@ -1,6 +1,7 @@
 let agent
 if(process.env.DISABLE_BLUEFYRE != "1"){
   agent = require('bluefyre-agent-node')
+  console.log('--- Turning on Bluefyre ---')
 }
 
 const express = require('express')

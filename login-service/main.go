@@ -85,7 +85,7 @@ const indexPage = `
 func indexPageHandler(response http.ResponseWriter, request *http.Request) {
 	//fmt.Fprintf(response, indexPage)
 	response.WriteHeader(http.StatusOK)
-	fmt.Fprintf(response, "")
+	fmt.Fprintf(response, "Welcome to Threat Stack's Cinema Application")
 
 }
 

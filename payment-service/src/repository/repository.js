@@ -21,6 +21,7 @@ const repository = (container) => {
         if (err) {
           reject(new Error('An error occurred procesing payment with stripe, err: ' + err))
         } else {
+          console.log('stripe return value, charge', charge)
           const paid = Object.assign({}, {user: payment.userName, amount: payment.amount, charge})
           resolve(paid)
         }

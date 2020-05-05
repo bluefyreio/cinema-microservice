@@ -12,7 +12,7 @@ COPY package.json npm-shrinkwrap.json $HOME/app/
 
 COPY src/ $HOME/app/src
 
-COPY bluefyre-agent-node-1.2.8.tgz $HOME/app/
+COPY bluefyre-agent-node-latest.tgz $HOME/app/
 
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.1.1/dumb-init_1.1.1_amd64 /usr/local/bin/dumb-init
 
@@ -23,7 +23,7 @@ RUN    chmod +x /usr/local/bin/dumb-init && \
 #    npm cache clean && \
 #    chown -R nupp:nupp ./bluefyre-agent-node-1.2.8.tgz && \
     npm install --silent --progress=false --production && \
-    npm install ./bluefyre-agent-node-1.2.8.tgz
+    npm install ./bluefyre-agent-node-latest.tgz
 #    chown -R nupp:nupp $HOME/*
 
 #USER nupp

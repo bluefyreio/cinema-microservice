@@ -31,7 +31,9 @@ const repository = (container) => {
 
   const generateTicket = (paid, booking) => {
     return new Promise((resolve, reject) => {
-      const payload = Object.assign({}, booking, {orderId: paid.charge.id, description: paid.description})
+      console.log('booking-service,received paid', paid)
+      console.log('booking-service,received booking', booking)
+      const payload = Object.assign({}, booking, {orderId: paid.charge.id, description: paid.charge.description})
       db.collection('tickets').insertOne(payload, (err, ticket) => {
         if (err) {
           reject(new Error('an error occured registring a ticket, err:' + err))

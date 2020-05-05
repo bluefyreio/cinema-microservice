@@ -1,9 +1,9 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: cinema-ingress2
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: "cinema-ip-001"  
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   backend:
     serviceName: login-service
